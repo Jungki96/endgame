@@ -35,6 +35,7 @@ const layoutStyles = {
 function Header() {
   return (
     <div style={{ ...HeaderStyles }}>
+      <button>홈</button>
       <span>My Music List</span>
     </div>
   );

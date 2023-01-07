@@ -1,9 +1,10 @@
 {
-  "posts": [
+  "lists": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "id": "R19Q4xf3Gcv6RGtWOpDai",
+      "title": "노래제목",
+      "desc": "노래후기",
+      "singer": "가수이름"
     }
   ],
   "comments": [
@@ -12,8 +13,4 @@
       "body": "some comment",
       "postId": 1
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
 }

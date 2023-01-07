@@ -3,11 +3,11 @@ import Layout from "../shared/Layout";
 import { useState } from "react";
 // import { nanoid } from "nanoid";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Submit = () => {
-  //
+  const navigate = useNavigate();
   const [music, setMusic] = useState({
-    id: "",
     title: "",
     desc: "",
     singer: "",
@@ -15,6 +15,7 @@ const Submit = () => {
 
   const onSubmitHandler = async (music) => {
     await axios.post("http://localhost:3001/lists", music);
+    navigate("/List");
   };
 
   return (

@@ -3,11 +3,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const initialState = {
-  lists: [],
-  isLoading: false,
-  error: null,
-};
+// redux toolkit
 export const __getMusic = createAsyncThunk(
   "lists/getLists",
   async (payload, thunkAPI) => {
@@ -20,8 +16,15 @@ export const __getMusic = createAsyncThunk(
   }
 );
 
-export const listsSlice = createSlice({
-  name: "lists",
+// initialState
+const initialState = {
+  lists: [],
+  isLoading: false,
+  error: null,
+};
+
+export const listSlice = createSlice({
+  name: "list",
   initialState,
   reducers: {},
   extraReducers: {
@@ -39,5 +42,5 @@ export const listsSlice = createSlice({
   },
 });
 
-export const {} = listsSlice.actions;
-export default listsSlice.reducer;
+export const {} = listSlice.actions;
+export default listSlice.reducer;

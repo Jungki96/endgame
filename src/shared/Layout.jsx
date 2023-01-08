@@ -1,6 +1,7 @@
 // src/shared/Layout.js
 
 import React from "react";
+import { Link } from "react-router-dom";
 
 const HeaderStyles = {
   width: "100%",
@@ -35,7 +36,7 @@ const layoutStyles = {
 function Header() {
   return (
     <div style={{ ...HeaderStyles }}>
-      <button>홈</button>
+      <Link to={`/`}>홈</Link>
       <span>My Music List</span>
     </div>
   );

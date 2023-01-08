@@ -30,7 +30,8 @@ const Submit = () => {
         <div className="addGroup">
           <label className="form-label">Title</label>
           <input
-            type="text"
+            required
+            type="type"
             name="title"
             value={music.title}
             className="add-input"
@@ -46,6 +47,7 @@ const Submit = () => {
         <div>
           <label className="form-label">Description</label>
           <input
+            required
             type="text"
             name="desc"
             value={music.desc}
@@ -62,6 +64,7 @@ const Submit = () => {
         <div>
           <label className="form-label">Singer</label>
           <input
+            required
             type="text"
             name="singer"
             value={music.singer}

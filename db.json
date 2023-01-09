@@ -2,34 +2,27 @@
   "lists": [
     {
       "id": 1,
-      "title": "노래제목",
-      "desc": "노래후기",
-      "singer": "git 파일만 이동"
+      "title": "빡",
+      "singer": "던말릭",
+      "desc": "코딩할때 들으면 화가 진정된다진정된다진정된다진정된다"
     },
     {
-      "title": "좋은날",
-      "desc": "좋아요",
-      "singer": "아이유",
-      "id": 5
+      "id": 2,
+      "title": "Real Good Feeling",
+      "desc": "빠른템포",
+      "singer": "On The Larceny"
     },
     {
-      "title": "ㅂㅈㄷ",
-      "desc": "ㅂㅈㄷ",
-      "singer": "ㅂㅈㄷ",
-      "id": 6
+      "id": 3,
+      "title": "Smiley",
+      "desc": "언제들어도 신나는",
+      "singer": "Yena"
     },
     {
-      "title": "ㅂㄴㅇ",
-      "desc": "ㅂㄴㅇ",
-      "singer": "ㅂㄴㅇ",
-      "id": 7
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "title": "병진",
+      "singer": "제발 공부좀",
+      "desc": "님",
+      "id": 4
     }
   ]
 }

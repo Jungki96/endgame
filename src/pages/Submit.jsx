@@ -9,8 +9,8 @@ const Submit = () => {
   const navigate = useNavigate();
   const [music, setMusic] = useState({
     title: "",
-    desc: "",
     singer: "",
+    desc: "",
   });
 
   const onSubmitHandler = async (music) => {

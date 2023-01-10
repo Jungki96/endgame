@@ -4,15 +4,24 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const Detail = () => {
-  const { id } = useParams();
+  const param = useParams();
   const navigate = useNavigate();
   const [musicList, setMusicList] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/lists").then((response) => {
-      setMusicList(response.data);
-      console.log(response.data);
-    });
+    axios
+      .get("http://localhost:3001/lists")
+      .then((response) => {
+        response.data.filter((list) => {
+          if (list.id === Number(param.id)) {
+            setMusicList(list);
+          }
+          return null;
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }, []);
 
   return (

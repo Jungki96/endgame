@@ -1,12 +1,11 @@
 // import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // import axios from "axios";
-// import { isDev, serverUrl } from ".";
 
 // export const __getCommentsThunk = createAsyncThunk(
 //   "GET_COMMENTS",
-//   async (_, thunkAPI) => {
+//   async (arg, thunkAPI) => {
 //     try {
-//       const { data } = await axios.get(`${serverUrl}/comments`);
+//       const { data } = await axios.get(`http://localhost:3001/lists`);
 //       return thunkAPI.fulfillWithValue(data);
 //     } catch (e) {
 //       return thunkAPI.rejectWithValue(e.code);
@@ -14,8 +13,8 @@
 //   }
 // );
 
-// export const __getCommnetsByTodoId = createAsyncThunk(
-//   "GET_COMMENT_BY_TODO_ID",
+// export const __getCommnetsByMusicId = createAsyncThunk(
+//   "GET_COMMENT_BY_MUSIC_ID",
 //   async (arg, thunkAPI) => {
 //     try {
 //       const { data } = await axios.get(`${serverUrl}/comments?todoId=${arg}`);

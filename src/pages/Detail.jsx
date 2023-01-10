@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+// import { useDispatch } from "react-redux";
+// import { clearMusic, getMusic, updateMusic } from "../redux/modules/musicSlice";
 
 const Detail = () => {
+  // 상세정보 창
   const param = useParams();
   const navigate = useNavigate();
   const [musicList, setMusicList] = useState([]);
@@ -23,6 +26,13 @@ const Detail = () => {
         console.log(error);
       });
   }, []);
+
+  //댓글 기능
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(__getCommentsThunk);
+  // });
 
   return (
     <StContainer>

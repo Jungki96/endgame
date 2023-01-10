@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Submit = () => {
   const navigate = useNavigate();
   const [music, setMusic] = useState({
+    id: 0,
     title: "",
     singer: "",
     desc: "",

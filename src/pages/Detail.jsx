@@ -37,10 +37,25 @@ const Detail = () => {
   // });
   const [comments, setComments] = useState([]);
   useEffect(() => {
-    axios.get(`http://localhost:3001/comments`).then((res) => {
-      console.log("코멘트 긁혀오는거 확인 :", res.data);
-      setComments(res.data);
-    });
+    axios
+      .get(`http://localhost:3001/comments?listid=${id}`)
+      .then((res) => {
+        console.log(res);
+        setComments(res.data);
+        // console.log(res.data);
+        // res.data.map((need) => {
+        //   console.log("니드.리스트아이디:", need.listid);
+        //   if (need.listid === Number(id)) {
+        //     console.log(comments);
+        //     console.log(need);
+        //     setComments([...comments, need]);
+        //   }
+        //   return null;
+        // });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }, []);
   console.log("코멘트  :", comments);
 
@@ -84,7 +99,6 @@ const Detail = () => {
                     <h3 className="textBbox">
                       {comment.username} - {comment.comment}
                     </h3>
-                    {/* button */}
                     <button
                       className="btnDelete"
                       onClick={() => onDeleteComment(comment.id)}

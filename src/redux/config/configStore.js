@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import list from "../modules/listSlice";
-import music from "../modules/music";
+import music from "../modules/musicSlice";
+import detail from "../modules/musicSlice";
 
 const store = configureStore({
   reducer: {
-    list,
-    music,
+    list: list,
+    music: music,
+    detail: detail,
   },
 });
 

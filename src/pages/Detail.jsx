@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+// import { deleteComment } from "../";
 // import { useDispatch } from "react-redux";
 // import { clearMusic, getMusic, updateMusic } from "../redux/modules/musicSlice";
 
 const Detail = () => {
   // 상세정보 창
-  const param = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
   const [musicList, setMusicList] = useState([]);
 
@@ -15,8 +16,9 @@ const Detail = () => {
     axios
       .get("http://localhost:3001/lists")
       .then((response) => {
+        // console.log("param 확인 :", typeof id);
         response.data.filter((list) => {
-          if (list.id === Number(param.id)) {
+          if (list.id === Number(id)) {
             setMusicList(list);
           }
           return null;
@@ -33,6 +35,18 @@ const Detail = () => {
   // useEffect(() => {
   //   dispatch(__getCommentsThunk);
   // });
+  const [comments, setComments] = useState([]);
+  useEffect(() => {
+    axios.get(`http://localhost:3001/lists/${id}`).then((res) => {
+      console.log("코멘트 긁혀오는거 확인 :", res);
+      setComments(res.data.comments);
+    });
+  }, []);
+  console.log("코멘트  :", comments);
+
+  const onDeleteComment = (arg) => {
+    axios.delete(`http://localhost:3001/lists/comments/${arg}`);
+  };
 
   return (
     <StContainer>
@@ -49,8 +63,39 @@ const Detail = () => {
               이전으로
             </StButton>
           </StDialogHeader>
-          <StTitle>{musicList.title}</StTitle>
-          <StBody>{musicList.body}</StBody>
+          <StTitle>
+            노래 : {musicList.title} <br />
+            가수 : {musicList.singer}
+          </StTitle>
+          <StBody>{musicList.desc}</StBody>
+        </div>
+      </StDialog>
+      <StDialog>
+        <div>
+          <StInputComment></StInputComment>
+          <button>등록하기</button>
+          <StCommentHeader>댓글 목록</StCommentHeader>
+          <StComment>
+            {comments.map((comment) => {
+              console.log("코멘트 아이디", comment.id);
+              return (
+                <div className="todocontainer" key={comment.id}>
+                  <div className="todoInfo">
+                    <h3 className="textBbox">
+                      {comment.username} - {comment.comment}
+                    </h3>
+                    {/* button */}
+                    <button
+                      className="btnDelete"
+                      onClick={() => onDeleteComment(comment.id)}
+                    >
+                      삭제하기
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </StComment>
         </div>
       </StDialog>
     </StContainer>
@@ -66,6 +111,7 @@ const StContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 `;
 
 const StDialog = styled.div`
@@ -77,6 +123,7 @@ const StDialog = styled.div`
   justify-content: space-between;
   background-color: beige;
   border-radius: 10px 10px;
+  margin: 10px;
 `;
 
 const StDialogHeader = styled.div`
@@ -103,3 +150,9 @@ const StButton = styled.button`
   border-radius: 12px;
   cursor: pointer;
 `;
+
+const StInputComment = styled.input``;
+
+const StComment = styled.div``;
+
+const StCommentHeader = styled.h1``;

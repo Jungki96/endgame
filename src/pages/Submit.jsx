@@ -12,6 +12,7 @@ const Submit = () => {
     title: "",
     singer: "",
     desc: "",
+    comments: [],
   });
 
   const onSubmitHandler = async (music) => {
@@ -41,6 +42,7 @@ const Submit = () => {
               setMusic({
                 ...music,
                 title: value,
+                comments: [],
               });
             }}
           />

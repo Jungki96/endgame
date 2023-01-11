@@ -28,11 +28,13 @@ export const commentSlice = createSlice({
   name: "comment",
   initialState,
   reducers: {
+    //동기
     clearComment: (state) => {
       state.data.content = "";
     },
   },
   extraReducers: {
+    //비동기
     [getComment.pending]: (state, action) => {
       state.isLoading = true;
     },

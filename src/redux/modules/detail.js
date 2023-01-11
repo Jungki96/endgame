@@ -4,10 +4,12 @@ import axios from "axios";
 export const deleteComment = createAsyncThunk(
   "DELETE_COMMENT",
   async (arg, thunkAPI) => {
+    console.log(arg);
     try {
       const { data } = await axios.delete(
-        `http://localhost:3001/lists/comments${arg}`
+        `http://localhost:3001/comments/${arg}`
       );
+      console.log({ data });
       return thunkAPI.fulfillWithValue(data);
     } catch (e) {
       return thunkAPI.rejectWithValue(e.code);
@@ -28,17 +30,17 @@ export const detailSlice = createSlice({
   name: "detail",
   initialState,
   reducers: {
-    clearMusic: (state, action) => {
+    clearMusic: (state) => {
       state.isSuccess = false;
     },
   },
   extraReducers: {
-    //DELETE_MUSIC
+    //DELETE_COMMENT
     [deleteComment.fulfilled]: (state, action) => {
-      const target = state.lists.findIndex(
-        (data) => data.id === action.payload
-      );
-      state.lists.splice(target, 1);
+      //   const target = state.lists.findIndex(
+      //     (data) => data.id === action.payload
+      //   );
+      //   state.lists.splice(target, 1);
     },
     [deleteComment.rejected]: () => {},
     [deleteComment.pending]: () => {},

@@ -42,7 +42,6 @@ const Submit = () => {
               setMusic({
                 ...music,
                 title: value,
-                comments: [],
               });
             }}
           />

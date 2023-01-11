@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-// import { deleteComment } from "../";
-// import { useDispatch } from "react-redux";
+import { deleteComment } from "../redux/modules/detail";
+import { useDispatch } from "react-redux";
 // import { clearMusic, getMusic, updateMusic } from "../redux/modules/musicSlice";
 
 const Detail = () => {
   // 상세정보 창
+  const dispatch = useDispatch();
   const { id } = useParams();
   const navigate = useNavigate();
   const [musicList, setMusicList] = useState([]);
@@ -30,22 +31,22 @@ const Detail = () => {
   }, []);
 
   //댓글 기능
-  // const dispatch = useDispatch();
 
   // useEffect(() => {
   //   dispatch(__getCommentsThunk);
   // });
   const [comments, setComments] = useState([]);
   useEffect(() => {
-    axios.get(`http://localhost:3001/lists/${id}`).then((res) => {
-      console.log("코멘트 긁혀오는거 확인 :", res);
-      setComments(res.data.comments);
+    axios.get(`http://localhost:3001/comments`).then((res) => {
+      console.log("코멘트 긁혀오는거 확인 :", res.data);
+      setComments(res.data);
     });
   }, []);
   console.log("코멘트  :", comments);
 
   const onDeleteComment = (arg) => {
-    axios.delete(`http://localhost:3001/lists/comments/${arg}`);
+    console.log(arg);
+    dispatch(deleteComment(arg));
   };
 
   return (
@@ -77,7 +78,6 @@ const Detail = () => {
           <StCommentHeader>댓글 목록</StCommentHeader>
           <StComment>
             {comments.map((comment) => {
-              console.log("코멘트 아이디", comment.id);
               return (
                 <div className="todocontainer" key={comment.id}>
                   <div className="todoInfo">

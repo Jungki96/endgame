@@ -4,37 +4,27 @@
       "id": 1,
       "title": "빡",
       "singer": "던말릭",
-      "desc": "코딩할때 들으면 화가 진정된다",
-      "comments": [
-        {
-          "id": 1,
-          "comment": "이게?",
-          "username": "정기"
-        },
-        {
-          "id": 2,
-          "comment": "이걸?",
-          "username": "정기2"
-        }
-      ]
+      "desc": "코딩할때 들으면 화가 진정된다"
     },
     {
       "id": 2,
       "title": "Real Good Feeling",
       "desc": "빠른템포",
-      "singer": "On The Larceny",
-      "comments": [
-        {
-          "coid": 1,
-          "comment": "이게?",
-          "username": "정기"
-        },
-        {
-          "coid": 2,
-          "comment": "이걸?",
-          "username": "정기2"
-        }
-      ]
+      "singer": "On The Larceny"
+    }
+  ],
+  "comments": [
+    {
+      "listid": 1,
+      "id": 1,
+      "comment": "이게?",
+      "username": "정기"
+    },
+    {
+      "listid": 1,
+      "id": 2,
+      "comment": "이걸?",
+      "username": "정기2"
     }
   ]
 }

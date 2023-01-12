@@ -6,7 +6,7 @@
 }
 
 .add-input {
-  font-size: 60px;
+  font-size: 40px;
   border-radius: 10px 10px 10px 10px;
 }
 .addBox {
@@ -53,6 +53,12 @@
 
 /* List CSS */
 
+.listArray {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
 .delete-button {
   margin-top: 10px;
   color: white;
@@ -81,5 +87,68 @@
 
 /* DETAIL CSS */
 .editBox {
-  margin: 10px 0px 10px 0;
+  margin: 10px 0px 10px 20px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.justEditButton {
+  margin-left: 10px;
+  margin-top: 10px;
+  color: white;
+  border-radius: 10px 10px 10px 10px;
+  background: rgb(96, 9, 240);
+  background: linear-gradient(
+    0deg,
+    rgba(96, 9, 240, 1) 0%,
+    rgba(129, 5, 240, 1) 100%
+  );
+  border: none;
+  font-size: large;
+  display: flex;
+  justify-content: center;
+}
+.justEditButton:before {
+  height: 10%;
+  width: 2px;
+}
+.justEditButton:hover {
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+    -4px -4px 6px 0 rgba(116, 125, 136, 0.5),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, 0.4);
+}
+
+.commentBox {
+  margin: 10px 0 0 10px;
+}
+
+.WithAddComment {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.justCommentButton {
+  margin-left: 20px;
+  color: white;
+  border-radius: 10px 10px 10px 10px;
+  background: rgb(96, 9, 240);
+  background: linear-gradient(
+    0deg,
+    rgba(96, 9, 240, 1) 0%,
+    rgba(129, 5, 240, 1) 100%
+  );
+  border: none;
+  font-size: large;
+}
+.justCommentButton:before {
+  height: 10%;
+  width: 2px;
+}
+.justCommentButton:hover {
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+    -4px -4px 6px 0 rgba(116, 125, 136, 0.5),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, 0.4);
 }

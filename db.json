@@ -9,15 +9,26 @@
     {
       "id": 2,
       "title": "Real Good Feeling",
-      "desc": "qwe",
+      "desc": "Real Good Feeling",
       "singer": "On The Larceny"
     },
     {
       "id": 3,
-      "title": "미운오리새끼",
-      "singer": "허성현",
-      "desc": "이 노래로 왜 우승을 못하냐구 ㅠㅠ",
-      "comments": []
+      "title": "마이웨이",
+      "singer": "저스디스",
+      "desc": "이 양반 발라드하더니 점점 랩이 착해진다"
+    },
+    {
+      "id": 4,
+      "title": "WE ",
+      "singer": "이영지,토이고,제이켠,잠비노",
+      "desc": "위 ~ 위~ 위~ 위~~~ 위 아래위 아래"
+    },
+    {
+      "id": 5,
+      "title": "Chosen 1",
+      "singer": "Blase",
+      "desc": "Css 1시간 하는동안 이것만 들었다!!!"
     }
   ],
   "comments": [
@@ -48,6 +59,30 @@
     {
       "listid": 3,
       "id": 6,
+      "comment": "유후?",
+      "username": "정기6"
+    },
+    {
+      "listid": 4,
+      "id": 7,
+      "comment": "즐기자?",
+      "username": "정기5"
+    },
+    {
+      "listid": 4,
+      "id": 8,
+      "comment": "유후?",
+      "username": "정기6"
+    },
+    {
+      "listid": 5,
+      "id": 9,
+      "comment": "즐기자?",
+      "username": "정기5"
+    },
+    {
+      "listid": 5,
+      "id": 10,
       "comment": "유후?",
       "username": "정기6"
     }

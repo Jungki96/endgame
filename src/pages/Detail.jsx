@@ -9,6 +9,7 @@ import {
 } from "../redux/modules/detail";
 import { useDispatch } from "react-redux";
 // import { clearMusic, getMusic, updateMusic } from "../redux/modules/musicSlice";
+import "./mine.css";
 
 const Detail = () => {
   // 상세정보 창
@@ -87,10 +88,10 @@ const Detail = () => {
             </StButton>
           </StDialogHeader>
           <StTitle>
-            노래 : {musicList.title} <br />
-            가수 : {musicList.singer}
+            🎶 {musicList.title} <br />
+            🎤 {musicList.singer}
             <br />
-            설명 : {musicList.desc}
+            📖 {musicList.desc}
           </StTitle>
           <div className="editBox">
             <input
@@ -107,6 +108,7 @@ const Detail = () => {
             <button
               // type='button' 을 추가해야 form의 영향에서 벗어남
               type="button"
+              className="justEditButton"
               onClick={() => onEditMusic(editMusic)}
             >
               수정하기
@@ -115,25 +117,7 @@ const Detail = () => {
         </div>
       </StDialog>
       <StDialog>
-        <div>
-          <input
-            type="text"
-            placeholder="작동안됩니다"
-            onChange={(ev) => {
-              setEditMusic({
-                ...editMusic,
-                desc: ev.target.value,
-                id: id,
-              });
-            }}
-          />
-          <button
-            // type='button' 을 추가해야 form의 영향에서 벗어남
-            type="button"
-            onClick={() => onEditMusic(editMusic)}
-          >
-            댓글남기기
-          </button>
+        <div className="commentBox">
           <StCommentHeader>댓글 목록</StCommentHeader>
           <StComment>
             {comments.map((comment) => {
@@ -145,16 +129,37 @@ const Detail = () => {
                       {comment.username} - {comment.comment}
                     </h3>
                     <button
-                      className="btnDelete"
+                      className="justEditButton"
                       onClick={() => onDeleteComment(comment.id)}
                     >
-                      삭제하기
+                      ☝️delete
                     </button>
                   </div>
                 </div>
               );
             })}
           </StComment>
+          <div className="WithAddComment">
+            <input
+              type="text"
+              placeholder="작동안됩니다"
+              onChange={(ev) => {
+                setEditMusic({
+                  ...editMusic,
+                  desc: ev.target.value,
+                  id: id,
+                });
+              }}
+            />
+            <button
+              // type='button' 을 추가해야 form의 영향에서 벗어남
+              type="button"
+              className="justCommentButton"
+              onClick={() => onEditMusic(editMusic)}
+            >
+              댓글남기기
+            </button>
+          </div>
         </div>
       </StDialog>
     </StContainer>
@@ -174,13 +179,14 @@ const StContainer = styled.div`
 `;
 
 const StDialog = styled.div`
+  color: beige;
   width: 600px;
   height: 400px;
   border: 1px solid #eee;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: beige;
+  background-color: #3dd4bb;
   border-radius: 10px 10px;
   margin: 10px;
 `;

@@ -31,7 +31,7 @@ const List = () => {
 
   return (
     <Layout>
-      <div>
+      <div className="listArray">
         <StGroup>
           {musics?.map((music) => {
             console.log(music.id);

@@ -3,49 +3,55 @@ import Layout from "../shared/Layout";
 import axios from "axios";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-// import { useDispatch } from "react-redux";
-// import { deleteMusic } from "../redux/modules/listSlice";
-// redux
-// import { getMusic } from "../redux/modules/listSlice";
+import { useDispatch } from "react-redux";
+import { deleteMusic } from "../redux/modules/listSlice";
 
 // 작동 되는것
 const List = () => {
   const [musics, setMusics] = useState(null);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     axios.get("http://localhost:3001/lists").then((response) => {
-      console.log(response.data);
       setMusics(response.data);
     });
   }, []);
 
-  // const onDeleteMusic = (id) => {
-  //   dispatch(deleteMusic(id));
-  // };
+  const onDeleteMusic = async (id) => {
+    // id.stopPropagation();
+    const result = window.confirm("이 할일을 지울까요?");
+    if (result) {
+      return dispatch(deleteMusic(id));
+    } else {
+      return;
+    }
+  };
 
   return (
     <Layout>
       <div>
         <StGroup>
           {musics?.map((music) => {
+            console.log(music.id);
             return (
               <StBox key={music.id}>
                 <StHeadBox>
                   <StyledLink to={`/List/${music.id}`} key={music.id}>
                     <div> 상세 페이지 </div>
                   </StyledLink>
-                  {/* <StDeleteButton onClick={onDeleteMusic(music.id)}>
-                    삭제
-                  </StDeleteButton> */}
                 </StHeadBox>
                 <div>
                   <li>제목 : "{music.title}"</li>
-                  <br></br>
                   <li>가수 : "{music.singer}"</li>
-                  <br></br>
                   <li>후기 : "{music.desc}"</li>
                 </div>
+                <button
+                  onClick={() => {
+                    onDeleteMusic(music.id);
+                  }}
+                >
+                  삭제
+                </button>
               </StBox>
             );
           })}
@@ -97,7 +103,3 @@ const StHeadBox = styled.div`
   display: flex;
   justify-content: space-around;
 `;
-
-// const StDeleteButton = styled.button`
-//   margin-left: 70px;
-// `;

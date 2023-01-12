@@ -16,8 +16,8 @@ export const deleteMusic = createAsyncThunk(
   "DELETE_MUSIC",
   async (arg, thunkAPI) => {
     try {
-      axios.delete(`http://localhost:3001/lists/${arg}`);
-      return thunkAPI.fulfillWithValue(arg);
+      const { data } = axios.delete(`http://localhost:3001/lists/${arg}`);
+      return thunkAPI.fulfillWithValue(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -32,6 +32,18 @@ export const getMusic = createAsyncThunk("GET_MUSIC", async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error);
   }
 });
+export const editMusic = createAsyncThunk(
+  "EDIT_MUSIC",
+  async (arg, thunkAPI) => {
+    console.log(arg);
+    try {
+      axios.patch(`http://localhost:3001/lists/${arg.id}`, arg);
+      return thunkAPI.fulfillWithValue(arg);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.code);
+    }
+  }
+);
 
 // 초기값
 const initialState = {

@@ -2,8 +2,13 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { deleteComment } from "../redux/modules/detail";
-import { useDispatch } from "react-redux";
+import {
+  deleteComment,
+  editComment,
+  list,
+  getMusicThunk,
+} from "../redux/modules/detail";
+import { useDispatch, useSelector } from "react-redux";
 // import { clearMusic, getMusic, updateMusic } from "../redux/modules/musicSlice";
 
 const Detail = () => {
@@ -17,7 +22,6 @@ const Detail = () => {
     axios
       .get("http://localhost:3001/lists")
       .then((response) => {
-        // console.log("param 확인 :", typeof id);
         response.data.filter((list) => {
           if (list.id === Number(id)) {
             setMusicList(list);
@@ -40,28 +44,34 @@ const Detail = () => {
     axios
       .get(`http://localhost:3001/comments?listid=${id}`)
       .then((res) => {
-        console.log(res);
         setComments(res.data);
-        // console.log(res.data);
-        // res.data.map((need) => {
-        //   console.log("니드.리스트아이디:", need.listid);
-        //   if (need.listid === Number(id)) {
-        //     console.log(comments);
-        //     console.log(need);
-        //     setComments([...comments, need]);
-        //   }
-        //   return null;
-        // });
       })
       .catch(function (error) {
         console.log(error);
       });
   }, []);
-  console.log("코멘트  :", comments);
 
   const onDeleteComment = (arg) => {
-    console.log(arg);
     dispatch(deleteComment(arg));
+  };
+
+  //Edit
+  // const [isEditMode, setIsEditMode] = useState(false);
+  // const [updatedMusic, setUpdatedMusic] = useState("");
+  // const thismusic = useSelector((state) => state.lists.list);
+
+  // useEffect(() => {
+  //   dispatch(getMusicThunk(id));
+  //   return () => dispatch(list());
+  // }, [dispatch, id]);
+
+  // useEffect(() => {
+  //   setUpdatedMusic(thismusic.desc);
+  // }, []);
+
+  const onEditMusic = (arg) => {
+    console.log("코멘트 arg : ", arg);
+    dispatch(editComment(arg));
   };
 
   return (
@@ -70,6 +80,12 @@ const Detail = () => {
         <div>
           <StDialogHeader>
             <div>{musicList.title}의 상세페이지</div>
+            <button
+              className="btnEdit"
+              onClick={() => onEditMusic(musicList.id)}
+            >
+              수정하기
+            </button>
             <StButton
               borderColor="#ddd"
               onClick={() => {
@@ -93,6 +109,7 @@ const Detail = () => {
           <StCommentHeader>댓글 목록</StCommentHeader>
           <StComment>
             {comments.map((comment) => {
+              console.log("코멘트 id : ", comment.id);
               return (
                 <div className="todocontainer" key={comment.id}>
                   <div className="todoInfo">
@@ -165,6 +182,14 @@ const StButton = styled.button`
   cursor: pointer;
 `;
 
+const StEditbutton = styled.button`
+  border: 1px solid ${({ borderColor }) => borderColor};
+  height: 40px;
+  width: 120px;
+  background-color: #fff;
+  border-radius: 12px;
+  cursor: pointer;
+`;
 const StInputComment = styled.input``;
 
 const StComment = styled.div``;

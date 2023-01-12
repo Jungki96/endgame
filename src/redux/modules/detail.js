@@ -30,6 +30,7 @@ export const getMusicThunk = createAsyncThunk(
   async (arg, thunkAPI) => {
     try {
       const { data } = await axios.get(`http://localhost:3001/lists/${arg}`);
+      console.log(data);
       return thunkAPI.fulfillWithValue(data);
     } catch (e) {
       return thunkAPI.rejectWithValue(e.code);

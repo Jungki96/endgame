@@ -9,25 +9,23 @@
     {
       "id": 2,
       "title": "Real Good Feeling",
-      "desc": "빠른템포",
+      "desc": "됩니까!!!!",
       "singer": "On The Larceny"
     },
     {
       "id": 3,
       "title": "왜 안돼",
       "singer": "이해가 안가네",
-      "desc": "저장이?",
-      "comments": []
+      "desc": "수정"
+    },
+    {
+      "id": 4,
+      "title": "아 ",
+      "singer": "CSS 할래요",
+      "desc": "이제 "
     }
   ],
   "comments": [
-    {
-      "1": "",
-      "listid": 1,
-      "id": 1,
-      "comment": "이야?",
-      "username": "정기"
-    },
     {
       "listid": 1,
       "id": 2,

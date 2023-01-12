@@ -4,11 +4,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import {
   deleteComment,
-  editComment,
-  list,
-  getMusicThunk,
+  // editComment,
+  // getMusicThunk,
 } from "../redux/modules/detail";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 // import { clearMusic, getMusic, updateMusic } from "../redux/modules/musicSlice";
 
 const Detail = () => {
@@ -53,26 +52,23 @@ const Detail = () => {
 
   const onDeleteComment = (arg) => {
     dispatch(deleteComment(arg));
+    return window.location.reload();
   };
 
-  //Edit
-  // const [isEditMode, setIsEditMode] = useState(false);
-  // const [updatedMusic, setUpdatedMusic] = useState("");
-  // const thismusic = useSelector((state) => state.lists.list);
-
-  // useEffect(() => {
-  //   dispatch(getMusicThunk(id));
-  //   return () => dispatch(list());
-  // }, [dispatch, id]);
-
-  // useEffect(() => {
-  //   setUpdatedMusic(thismusic.desc);
-  // }, []);
-
-  const onEditMusic = (arg) => {
-    console.log("코멘트 arg : ", arg);
-    dispatch(editComment(arg));
+  // 리스트 에딧!에딧!에딨!!!
+  const onEditMusic = (e) => {
+    console.log("id:", e);
+    const thisid = Number(e.id);
+    // console.log("id:", typeof e.id);
+    const data = e.desc;
+    // console.log("thisid:", thisid);
+    console.log("data:", data);
+    axios.patch(`http://localhost:3001/lists/${thisid}`, e);
+    return window.location.reload();
   };
+  const [editMusic, setEditMusic] = useState({
+    desc: "",
+  });
 
   return (
     <StContainer>
@@ -80,12 +76,7 @@ const Detail = () => {
         <div>
           <StDialogHeader>
             <div>{musicList.title}의 상세페이지</div>
-            <button
-              className="btnEdit"
-              onClick={() => onEditMusic(musicList.id)}
-            >
-              수정하기
-            </button>
+
             <StButton
               borderColor="#ddd"
               onClick={() => {
@@ -98,14 +89,51 @@ const Detail = () => {
           <StTitle>
             노래 : {musicList.title} <br />
             가수 : {musicList.singer}
+            <br />
+            설명 : {musicList.desc}
           </StTitle>
-          <StBody>{musicList.desc}</StBody>
+        </div>
+        <div>
+          <input
+            type="text"
+            placeholder="입력안하면 수정안해"
+            onChange={(ev) => {
+              setEditMusic({
+                ...editMusic,
+                desc: ev.target.value,
+                id: id,
+              });
+            }}
+          />
+          <button
+            // type='button' 을 추가해야 form의 영향에서 벗어남
+            type="button"
+            onClick={() => onEditMusic(editMusic)}
+          >
+            수정하기
+          </button>
         </div>
       </StDialog>
       <StDialog>
         <div>
-          <StInputComment></StInputComment>
-          <button>등록하기</button>
+          <input
+            type="text"
+            placeholder="작동안됩니다"
+            onChange={(ev) => {
+              setEditMusic({
+                ...editMusic,
+                desc: ev.target.value,
+                id: id,
+              });
+            }}
+          />
+          <button
+            // type='button' 을 추가해야 form의 영향에서 벗어남
+            type="button"
+            onClick={() => onEditMusic(editMusic)}
+          >
+            댓글남기기
+          </button>
           <StCommentHeader>댓글 목록</StCommentHeader>
           <StComment>
             {comments.map((comment) => {
@@ -169,9 +197,9 @@ const StTitle = styled.h1`
   padding: 0 24px;
 `;
 
-const StBody = styled.main`
-  padding: 0 24px;
-`;
+// const StBody = styled.main`
+//   padding: 0 24px;
+// `;
 
 const StButton = styled.button`
   border: 1px solid ${({ borderColor }) => borderColor};
@@ -182,14 +210,14 @@ const StButton = styled.button`
   cursor: pointer;
 `;
 
-const StEditbutton = styled.button`
-  border: 1px solid ${({ borderColor }) => borderColor};
-  height: 40px;
-  width: 120px;
-  background-color: #fff;
-  border-radius: 12px;
-  cursor: pointer;
-`;
+// const StEditbutton = styled.button`
+//   border: 1px solid ${({ borderColor }) => borderColor};
+//   height: 40px;
+//   width: 120px;
+//   background-color: #fff;
+//   border-radius: 12px;
+//   cursor: pointer;
+// `;
 const StInputComment = styled.input``;
 
 const StComment = styled.div``;

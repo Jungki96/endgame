@@ -21,7 +21,8 @@ const List = () => {
     // id.stopPropagation();
     const result = window.confirm("이 할일을 지울까요?");
     if (result) {
-      return dispatch(deleteMusic(id));
+      dispatch(deleteMusic(id));
+      return window.location.reload();
     } else {
       return;
     }

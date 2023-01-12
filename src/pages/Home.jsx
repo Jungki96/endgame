@@ -8,32 +8,32 @@ const List = () => {
   return (
     <Layout>
       <div className="Home_Navigate_Group">
-        <div className="Home_Submit_Box">
-          <div>🥕🥕🥕🥕🥕</div>
-          <div>여기 홈위치</div>
+        <StRouteBox>
+          <div>🎶🎵🎶🎵🎶🎵🎶🎵🎶🎵🎶🎵🎶🎵🎶🎵🎶🎶🎵🎶</div>
+          <div></div>
           <StButton
             borderColor="#df0c0c"
             onClick={() => {
               navigate("/Submit");
             }}
           >
-            Submit Page
+            My Music
           </StButton>
-          <div>🧡💛💚💙💜</div>
-        </div>
-        <div className="Home_List_box">
-          <div>🥕🥕🥕🥕🥕</div>
-          <div> 여기 리스트창</div>
+          <div>🎶🎵🎶🎵🎶🎵🎶🎵🎶🎵🎶🎵🎶🎵🎶🎵🎶🎶🎵🎶</div>
+        </StRouteBox>
+        <StRouteBox>
+          <div>🧡💛💚💙💜🧡💛💚💙💜🧡💛💚💙💜🧡💛💚💙💜</div>
+          <div> </div>
           <StButton
             borderColor="#df0c0c"
             onClick={() => {
               navigate("/List");
             }}
           >
-            List Page
+            Play List
           </StButton>
-          <div>🧡💛💚💙💜</div>
-        </div>
+          <div>🧡💛💚💙💜🧡💛💚💙💜🧡💛💚💙💜🧡💛💚💙💜</div>
+        </StRouteBox>
       </div>
     </Layout>
   );
@@ -41,10 +41,16 @@ const List = () => {
 
 export default List;
 
+const StRouteBox = styled.div`
+  margin: 30px 0 30px 0;
+`;
+
 const StButton = styled.button`
   border: 1px solid ${({ borderColor }) => borderColor};
-  height: 40px;
-  width: 120px;
+  font-size: 32px;
+  color: white;
+  height: 100px;
+  width: 440px;
   background-color: #2f8de6;
   border-radius: 12px;
   cursor: pointer;

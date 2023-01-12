@@ -4,25 +4,20 @@
       "id": 1,
       "title": "빡",
       "singer": "던말릭",
-      "desc": "코딩할때 들으면 화가 진정된다"
+      "desc": "수정 해주세요"
     },
     {
       "id": 2,
       "title": "Real Good Feeling",
-      "desc": "됩니까!!!!",
+      "desc": "qwe",
       "singer": "On The Larceny"
     },
     {
       "id": 3,
-      "title": "왜 안돼",
-      "singer": "이해가 안가네",
-      "desc": "수정"
-    },
-    {
-      "id": 4,
-      "title": "아 ",
-      "singer": "CSS 할래요",
-      "desc": "이제 "
+      "title": "미운오리새끼",
+      "singer": "허성현",
+      "desc": "이 노래로 왜 우승을 못하냐구 ㅠㅠ",
+      "comments": []
     }
   ],
   "comments": [
@@ -33,7 +28,6 @@
       "username": "정기2"
     },
     {
-      "3": "",
       "listid": 2,
       "id": 3,
       "comment": "진짜?",
@@ -44,6 +38,18 @@
       "id": 4,
       "comment": "정말?",
       "username": "정기4"
+    },
+    {
+      "listid": 3,
+      "id": 5,
+      "comment": "즐기자?",
+      "username": "정기5"
+    },
+    {
+      "listid": 3,
+      "id": 6,
+      "comment": "유후?",
+      "username": "정기6"
     }
   ]
 }

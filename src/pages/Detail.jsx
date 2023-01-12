@@ -92,26 +92,26 @@ const Detail = () => {
             <br />
             설명 : {musicList.desc}
           </StTitle>
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="입력안하면 수정안해"
-            onChange={(ev) => {
-              setEditMusic({
-                ...editMusic,
-                desc: ev.target.value,
-                id: id,
-              });
-            }}
-          />
-          <button
-            // type='button' 을 추가해야 form의 영향에서 벗어남
-            type="button"
-            onClick={() => onEditMusic(editMusic)}
-          >
-            수정하기
-          </button>
+          <div className="editBox">
+            <input
+              type="text"
+              placeholder="입력안하면 수정안해"
+              onChange={(ev) => {
+                setEditMusic({
+                  ...editMusic,
+                  desc: ev.target.value,
+                  id: id,
+                });
+              }}
+            />
+            <button
+              // type='button' 을 추가해야 form의 영향에서 벗어남
+              type="button"
+              onClick={() => onEditMusic(editMusic)}
+            >
+              수정하기
+            </button>
+          </div>
         </div>
       </StDialog>
       <StDialog>
@@ -218,7 +218,6 @@ const StButton = styled.button`
 //   border-radius: 12px;
 //   cursor: pointer;
 // `;
-const StInputComment = styled.input``;
 
 const StComment = styled.div``;
 

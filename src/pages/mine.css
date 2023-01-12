@@ -1,0 +1,85 @@
+/* SUBMIT CSS */
+
+.form-label {
+  border: 10px;
+  font-size: large;
+}
+
+.add-input {
+  font-size: 60px;
+  border-radius: 10px 10px 10px 10px;
+}
+.addBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.add-input::placeholder {
+  color: rgb(38, 5, 158);
+  font-style: italic;
+  text-align: center;
+  border-width: 2px;
+  border-radius: 10px 10px;
+  padding: 5px 10px 5px 10px;
+}
+
+.add-button {
+  margin-top: 50px;
+  color: white;
+  border-radius: 10px 10px 10px 10px;
+  background: rgb(96, 9, 240);
+  background: linear-gradient(
+    0deg,
+    rgba(96, 9, 240, 1) 0%,
+    rgba(129, 5, 240, 1) 100%
+  );
+  border: none;
+  font-size: xxx-large;
+  display: flex;
+  justify-content: center;
+}
+.add-button:before {
+  height: 10%;
+  width: 2px;
+}
+.add-button:hover {
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+    -4px -4px 6px 0 rgba(116, 125, 136, 0.5),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* List CSS */
+
+.delete-button {
+  margin-top: 10px;
+  color: white;
+  border-radius: 10px 10px 10px 10px;
+  background: rgb(96, 9, 240);
+  background: linear-gradient(
+    0deg,
+    rgba(96, 9, 240, 1) 0%,
+    rgba(129, 5, 240, 1) 100%
+  );
+  border: none;
+  font-size: large;
+  display: flex;
+  justify-content: center;
+}
+.delete-button:before {
+  height: 10%;
+  width: 2px;
+}
+.delete-button:hover {
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+    -4px -4px 6px 0 rgba(116, 125, 136, 0.5),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* DETAIL CSS */
+.editBox {
+  margin: 10px 0px 10px 0;
+}

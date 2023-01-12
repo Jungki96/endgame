@@ -36,7 +36,7 @@ const layoutStyles = {
 function Header() {
   return (
     <div style={{ ...HeaderStyles }}>
-      <Link to={`/`}>홈</Link>
+      <Link to={`/`}>🔱</Link>
       <span>My Music List</span>
     </div>
   );

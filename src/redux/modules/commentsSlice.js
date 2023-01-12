@@ -5,7 +5,7 @@ export const __getCommentsThunk = createAsyncThunk(
   "GET_COMMENTS",
   async (arg, thunkAPI) => {
     try {
-      const { data } = await axios.get(`http://localhost:3001/lists`);
+      const { data } = await axios.get(`${process.env.REACT_APP_MUSIC}/lists`);
       return thunkAPI.fulfillWithValue(data);
     } catch (e) {
       return thunkAPI.rejectWithValue(e.code);

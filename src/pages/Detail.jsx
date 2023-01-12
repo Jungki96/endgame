@@ -20,7 +20,7 @@ const Detail = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/lists")
+      .get(`${process.env.REACT_APP_MUSIC}/lists`)
       .then((response) => {
         response.data.filter((list) => {
           if (list.id === Number(id)) {
@@ -42,7 +42,7 @@ const Detail = () => {
   const [comments, setComments] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/comments?listid=${id}`)
+      .get(`${process.env.REACT_APP_MUSIC}/comments?listid=${id}`)
       .then((res) => {
         setComments(res.data);
       })
@@ -64,7 +64,7 @@ const Detail = () => {
     const data = e.desc;
     // console.log("thisid:", thisid);
     console.log("data:", data);
-    axios.patch(`http://localhost:3001/lists/${thisid}`, e);
+    axios.patch(`${process.env.REACT_APP_MUSIC}/lists/${thisid}`, e);
     return window.location.reload();
   };
   const [editMusic, setEditMusic] = useState({

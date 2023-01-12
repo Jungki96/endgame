@@ -5,7 +5,9 @@ export const deleteComment = createAsyncThunk(
   "DELETE_COMMENT",
   async (arg, thunkAPI) => {
     try {
-      const { data } = axios.delete(`http://localhost:3001/comments/${arg}`);
+      const { data } = axios.delete(
+        `${process.env.REACT_APP_MUSIC}/comments/${arg}`
+      );
       console.log({ data });
       return thunkAPI.fulfillWithValue(data);
     } catch (e) {
@@ -18,7 +20,7 @@ export const editComment = createAsyncThunk(
   async (arg, thunkAPI) => {
     console.log("detail 넘어온값:", arg);
     try {
-      axios.patch(`http://localhost:3001/comments/${arg}`, arg);
+      axios.patch(`${process.env.REACT_APP_MUSIC}/comments/${arg}`, arg);
       return thunkAPI.fulfillWithValue(arg);
     } catch (e) {
       return thunkAPI.rejectWithValue(e);
@@ -29,7 +31,9 @@ export const getMusicThunk = createAsyncThunk(
   "GET_TODO",
   async (arg, thunkAPI) => {
     try {
-      const { data } = await axios.get(`http://localhost:3001/lists/${arg}`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_MUSIC}/lists/${arg}`
+      );
       console.log(data);
       return thunkAPI.fulfillWithValue(data);
     } catch (e) {
@@ -41,7 +45,7 @@ export const editMusic = createAsyncThunk(
   "UPDATE_TODO",
   async (arg, thunkAPI) => {
     try {
-      axios.patch(`http://localhost:3001/lists/${arg.id}`, arg);
+      axios.patch(`${process.env.REACT_APP_MUSIC}/lists/${arg.id}`, arg);
       return thunkAPI.fulfillWithValue(arg);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.code);

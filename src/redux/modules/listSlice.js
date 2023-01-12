@@ -5,7 +5,9 @@ import axios from "axios";
 // ADD MUSIC
 export const addMusic = createAsyncThunk("ADD_MUSIC", async (arg, thunkAPI) => {
   try {
-    const { data } = await axios.post(`http://localhost:3001/lists, arg`);
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_MUSIC}/lists, arg`
+    );
     return thunkAPI.fulfillWithValue(data);
   } catch (error) {
     return thunkAPI.rejectWithValue(error);
@@ -16,7 +18,9 @@ export const deleteMusic = createAsyncThunk(
   "DELETE_MUSIC",
   async (arg, thunkAPI) => {
     try {
-      const { data } = axios.delete(`http://localhost:3001/lists/${arg}`);
+      const { data } = axios.delete(
+        `${process.env.REACT_APP_MUSIC}/lists/${arg}`
+      );
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -26,7 +30,7 @@ export const deleteMusic = createAsyncThunk(
 // 음악 GET
 export const getMusic = createAsyncThunk("GET_MUSIC", async (_, thunkAPI) => {
   try {
-    const { data } = await axios.get(`http://localhost:3001/lists`);
+    const { data } = await axios.get(`${process.env.REACT_APP_MUSIC}/lists`);
     return thunkAPI.fulfillWithValue(data);
   } catch (error) {
     return thunkAPI.rejectWithValue(error);
@@ -37,7 +41,7 @@ export const editMusic = createAsyncThunk(
   async (arg, thunkAPI) => {
     console.log(arg);
     try {
-      axios.patch(`http://localhost:3001/lists/${arg.id}`, arg);
+      axios.patch(`${process.env.REACT_APP_MUSIC}/lists/${arg.id}`, arg);
       return thunkAPI.fulfillWithValue(arg);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.code);

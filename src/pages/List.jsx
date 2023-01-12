@@ -13,7 +13,7 @@ const List = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios.get("http://localhost:3001/lists").then((response) => {
+    axios.get(`${process.env.REACT_APP_MUSIC}/lists`).then((response) => {
       setMusics(response.data);
     });
   }, []);

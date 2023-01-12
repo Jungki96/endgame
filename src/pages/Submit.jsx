@@ -17,7 +17,7 @@ const Submit = () => {
   });
 
   const onSubmitHandler = async (music) => {
-    await axios.post("http://localhost:3001/lists", music);
+    await axios.post(`${process.env.REACT_APP_MUSIC}/lists`, music);
     navigate("/List");
   };
 
